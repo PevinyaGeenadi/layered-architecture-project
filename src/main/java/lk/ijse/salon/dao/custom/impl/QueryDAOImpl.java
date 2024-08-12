@@ -11,8 +11,8 @@ import java.sql.SQLException;
 
 public class QueryDAOImpl implements QueryDAO {
     public ObservableList<PieChart.Data> getDataToPieChart() throws SQLException, ClassNotFoundException {
-        String sql="SELECT medicine.medName,COUNT(orderdetail.medID) FROM orderDetail INNER JOIN medicine ON medicine.medID = orderdetail.medID INNER JOIN orders\n" +
-                " ON orderdetail.orderID=orders.orderID WHERE MONTH(orders.date) = MONTH(CURRENT_DATE()) GROUP BY medicine.medName LIMIT 5;\n";
+        String sql="SELECT product.productName,COUNT(orderdetail.productID) FROM orderDetail INNER JOIN product ON product.productID = orderdetail.productID INNER JOIN orders\n" +
+                " ON orderdetail.orderID=orders.orderID WHERE MONTH(orders.date) = MONTH(CURRENT_DATE()) GROUP BY product.productName LIMIT 5;\n";
         ObservableList<PieChart.Data> datalist = FXCollections.observableArrayList();
         ResultSet resultSet = SQLUtil.crudUtil(sql);
 

@@ -20,7 +20,7 @@ public class OrderDeatailDAOImpl implements OrderDeatailDAO {
     }
 
     private static boolean save(String orderid, PlaceOrderDTO placeOrderDTO) throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO orderdetail(medID,orderID,qty)" +
+        String sql = "INSERT INTO orderdetail(productID,orderID,qty)" +
                 "VALUES(?, ?, ?)";
 
         return SQLUtil.crudUtil(

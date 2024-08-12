@@ -14,17 +14,17 @@ public class ItemBOImpl {
         ArrayList<Item> arrayList =  itemDAO.getAll();
         ArrayList<ItemDTO> dtoArrayList = new ArrayList<>();
         for (Item c : arrayList) {
-            dtoArrayList.add(new ItemDTO(c.getItemCode(),c.getItemMedName(),c.getItemUnitPrice(),c.getItemType(),
+            dtoArrayList.add(new ItemDTO(c.getItemCode(),c.getItemProductName(),c.getItemUnitPrice(),c.getItemType(),
                     c.getItemmfgDate(),c.getItemDate(),c.getItemQOH()));
         }
         return dtoArrayList;
     }
     public boolean save(ItemDTO itmAdd) throws SQLException, ClassNotFoundException {
-        return itemDAO.save(new Item(itmAdd.getItemCode(), itmAdd.getItemMedName(), itmAdd.getItemUnitPrice()
+        return itemDAO.save(new Item(itmAdd.getItemCode(), itmAdd.getItemProductName(), itmAdd.getItemUnitPrice()
                 , itmAdd.getItemType(), itmAdd.getItemmfgDate(), itmAdd.getItemDate(), itmAdd.getItemQOH()));
     }
     public boolean update(ItemDTO itmAdd) throws SQLException, ClassNotFoundException {
-        return itemDAO.update(new Item(itmAdd.getItemCode(), itmAdd.getItemMedName(), itmAdd.getItemUnitPrice()
+        return itemDAO.update(new Item(itmAdd.getItemCode(), itmAdd.getItemProductName(), itmAdd.getItemUnitPrice()
                 , itmAdd.getItemType(), itmAdd.getItemmfgDate(), itmAdd.getItemDate(), itmAdd.getItemQOH()));
 
     }

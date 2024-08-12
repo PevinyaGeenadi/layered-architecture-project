@@ -15,7 +15,7 @@ import java.util.List;
 public class ItemDAOImpl implements ItemDAO {
     @Override
     public ArrayList<Item> getAll() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT * FROM medicine";
+        String sql = "SELECT * FROM Product";
 
         ArrayList<Item> obList = new ArrayList<>();
 
@@ -37,7 +37,7 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean save(Item supAdd) throws SQLException, ClassNotFoundException {
-        String sql = "INSERT INTO medicine(medID, medName,medUnitPrice, type, mfgDate , expDate, qtyOnHand) " +
+        String sql = "INSERT INTO product(productID, productName,productUnitPrice, type, mfgDate , expDate, qtyOnHand) " +
                 "VALUES(?, ?, ?, ? ,? ,?, ?)";
         /*return SQLUtil.crudUtil(
                 sql,
@@ -53,7 +53,7 @@ public class ItemDAOImpl implements ItemDAO {
         try (PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql)) {
 
             pstm.setString(1, supAdd.getItemCode());
-            pstm.setString(2, supAdd.getItemMedName());
+            pstm.setString(2, supAdd.getItemProductName());
             pstm.setString(3, supAdd.getItemUnitPrice());
             pstm.setString(4, supAdd.getItemType());
             pstm.setString(5, supAdd.getItemDate());
@@ -67,12 +67,12 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean update(Item supAdd) throws SQLException, ClassNotFoundException {
-        String sql = "UPDATE medicine SET medName = ?, medUnitPrice=?, type = ?, mfgDate = ?, expDate = ?, qtyOnHand = ? WHERE medID = ?";
+        String sql = "UPDATE product SET productName = ?, productUnitPrice=?, type = ?, mfgDate = ?, expDate = ?, qtyOnHand = ? WHERE productID = ?";
 
 
         try (PreparedStatement pstm = DBConnection.getInstance().getConnection().prepareStatement(sql)) {
 
-            pstm.setString(1, supAdd.getItemMedName());
+            pstm.setString(1, supAdd.getItemProductName());
             pstm.setString(2, supAdd.getItemUnitPrice());
             pstm.setString(3, supAdd.getItemType());
             pstm.setString(4, supAdd.getItemDate());
@@ -86,12 +86,12 @@ public class ItemDAOImpl implements ItemDAO {
 
     @Override
     public boolean delete(String id) throws SQLException, ClassNotFoundException {
-        return SQLUtil.crudUtil("DELETE FROM medicine WHERE medID = ?", id);
+        return SQLUtil.crudUtil("DELETE FROM product WHERE productID = ?", id);
     }
 
     @Override
     public ArrayList<Item> search(String id) throws SQLException, ClassNotFoundException {
-        String sql = "SELECT * FROM medicine WHERE medID=?";
+        String sql = "SELECT * FROM product WHERE productID=?";
 
         ArrayList<Item> arrayList = new ArrayList<>();
         ResultSet resultSet = SQLUtil.crudUtil(sql,id);
@@ -110,7 +110,7 @@ public class ItemDAOImpl implements ItemDAO {
 
 
     public List<String> loadCodes() throws SQLException, ClassNotFoundException {
-        String sql = "SELECT medID FROM medicine";
+        String sql = "SELECT productID FROM product";
         ResultSet resultSet = SQLUtil.crudUtil(sql);
 
         List<String> data =new ArrayList<>();
@@ -149,7 +149,7 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     private static boolean updateQty(PlaceOrderDTO placeorder) throws SQLException, ClassNotFoundException {
-        String sql = "UPDATE medicine SET qtyOnHand = (qtyOnHand - ?) WHERE medID = ?";
+        String sql = "UPDATE product SET qtyOnHand = (qtyOnHand - ?) WHERE productID = ?";
 
         return SQLUtil.crudUtil(
                 sql,

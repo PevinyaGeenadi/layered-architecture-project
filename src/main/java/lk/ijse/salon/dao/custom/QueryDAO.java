@@ -6,6 +6,6 @@ import lk.ijse.salon.dao.SuperDAO;
 
 import java.sql.SQLException;
 
-public interface QueryDAO extends SuperDAO {
+public interface  QueryDAO extends SuperDAO {
     public ObservableList<PieChart.Data> getDataToPieChart() throws SQLException, ClassNotFoundException;
 }

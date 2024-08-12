@@ -222,7 +222,7 @@ public class ItemFormController {
 
 
             for (ItemDTO i : supList) {
-                mainCOMItem.getItems().add(new ItemTM(i.getItemCode(), i.getItemMedName(), i.getItemUnitPrice(),
+                mainCOMItem.getItems().add(new ItemTM(i.getItemCode(), i.getItemProductName(), i.getItemUnitPrice(),
                         i.getItemType(),i.getItemmfgDate(),i.getItemDate(),i.getItemQOH()));
             }
 

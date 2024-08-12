@@ -46,7 +46,7 @@ public class OrderFormBOImpl {
 
         ArrayList<ItemDTO> dtoArrayList = new ArrayList<>();
         for (Item c : arrayList) {
-            dtoArrayList.add(new ItemDTO(c.getItemCode(),c.getItemMedName(),c.getItemUnitPrice(),c.getItemType(),c.getItemmfgDate(),c.getItemDate(),c.getItemQOH()));
+            dtoArrayList.add(new ItemDTO(c.getItemCode(),c.getItemProductName(),c.getItemUnitPrice(),c.getItemType(),c.getItemmfgDate(),c.getItemDate(),c.getItemQOH()));
         }
         return dtoArrayList;
 

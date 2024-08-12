@@ -15,9 +15,6 @@ public class ReportsFormController {
 
     public void btnOnCustomerDetaiils(ActionEvent event) {
         InputStream resource = this.getClass().getResourceAsStream("/reports/custome.jrxml");
-
-
-
         {
             try {
                 JasperReport jasperReport = JasperCompileManager.compileReport(resource);
@@ -33,7 +30,7 @@ public class ReportsFormController {
         InputStream resource = this.getClass().getResourceAsStream("/reports/Employyee.jrxml");
         try {
             JasperReport jasperReport = JasperCompileManager.compileReport(resource);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, DBConnection.getInstance().getConnection()); /*33 line */
             JasperViewer.viewReport(jasperPrint, false);
         } catch (Exception e) {
             e.printStackTrace();

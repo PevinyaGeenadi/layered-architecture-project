@@ -1,6 +1,6 @@
-drop database vinu;
-CREATE DATABASE vinu;
-USE vinu;
+drop database geenu;
+CREATE DATABASE geenu;
+USE geenu;
 
 CREATE TABLE Employee(
                          empID VARCHAR(10),
@@ -27,7 +27,7 @@ CREATE TABLE salary(
 CREATE TABLE attendance(
                            attendanceID VARCHAR(10),
                            empID VARCHAR(10),
-                           workingHourse Int(10) NOT NULL,
+                           workingHourse int(10) NOT NULL,
                            date  DATE,
                            CONSTRAINT PRIMARY KEY (attendanceID),
                            CONSTRAINT FOREIGN KEY(empID) REFERENCES Employee(empID)
@@ -70,22 +70,22 @@ CREATE TABLE Bill(
                          ON UPDATE CASCADE ON DELETE CASCADE
 );
 
-CREATE TABLE Item(
-                         itemID VARCHAR(10) ,
-                         itemName VARCHAR(30) NOT NULL,
-                         itemUnitPrice DECIMAL(8,2) not null ,
+CREATE TABLE Product(
+                         productID VARCHAR(10) ,
+                         productName VARCHAR(30) NOT NULL,
+                         productUnitPrice DECIMAL(8,2) not null ,
                          type VARCHAR(30) NOT NULL,
                          mfgDate DATE,
                          expDate DATE,
                          qtyOnHand INT(10) NOT NULL,
-                         CONSTRAINT PRIMARY KEY (itemID)
+                         CONSTRAINT PRIMARY KEY (productID)
 );
 
 CREATE TABLE orderDetail(
-                            itemID VARCHAR(10) ,
+                            productID VARCHAR(10) ,
                             orderID VARCHAR(10) ,
                             qty INT(10),
-                            CONSTRAINT FOREIGN KEY(itemID) REFERENCES Item(itemID),
+                            CONSTRAINT FOREIGN KEY(productID) REFERENCES Product(productID),
                             CONSTRAINT FOREIGN KEY(orderID) REFERENCES Orders(orderID)
                                 ON UPDATE CASCADE ON DELETE CASCADE
 );
@@ -112,9 +112,9 @@ CREATE TABLE SupplierOrder(
 
 
 CREATE TABLE Supply(
-                       itemID VARCHAR(10) ,
+                       productID VARCHAR(10) ,
                        supOrderID VARCHAR(10) ,
-                       CONSTRAINT FOREIGN KEY(itemID) REFERENCES Item(itemID),
+                       CONSTRAINT FOREIGN KEY(productID) REFERENCES Product(productID),
                        CONSTRAINT FOREIGN KEY(supOrderID) REFERENCES SupplierOrder (supOrderID)
                            ON UPDATE CASCADE ON DELETE CASCADE
 );

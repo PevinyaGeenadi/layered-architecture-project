@@ -19,7 +19,7 @@ import java.net.URL;
         private static Scene scene;
 
         public static void switchNavigation(String link, ActionEvent event) throws IOException {
-            Parent root = FXMLLoader.load(Navigation.class.getResource("/view/"+link));
+            Parent root = FXMLLoader.load(Navigation.class.getResource("/view/" +link));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -28,7 +28,7 @@ import java.net.URL;
         }
 
         public static void switchNavigation(String link, MouseEvent event) throws IOException {
-            Parent root = FXMLLoader.load(Navigation.class.getResource("/view/"+link));
+            Parent root = FXMLLoader.load(Navigation.class.getResource("/view/" +link));
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = new Scene(root);
             stage.setScene(scene);
@@ -49,7 +49,7 @@ import java.net.URL;
         public static void onTheTopNavigation(Pane pane, String link){
             pane.getChildren().clear();
             try {
-                FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/"+link));
+                FXMLLoader loader = new FXMLLoader(Navigation.class.getResource("/view/" +link));
                 Parent root = loader.load();
                 pane.getChildren().add(root);
             } catch (IOException e) {

@@ -10,7 +10,7 @@ import lombok.*;
 
 public class Item {
     private String ItemCode;
-    private String ItemMedName;
+    private String ItemProductName;
     private String ItemUnitPrice;
     private String ItemType;
     private String ItemmfgDate;

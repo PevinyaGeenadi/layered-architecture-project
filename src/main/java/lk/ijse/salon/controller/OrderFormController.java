@@ -195,7 +195,7 @@ public class OrderFormController {
             itemDTO = orderFormBO.findById(itemcode);
 
             for (ItemDTO i : itemDTO) {
-                lblchangingitmname.setText(i.getItemMedName());
+                lblchangingitmname.setText(i.getItemProductName());
                 lblchangingunitprice.setText(String.valueOf(i.getItemUnitPrice()));
                 lblchangingcategory.setText(i.getItemType());
 
@@ -205,7 +205,7 @@ public class OrderFormController {
                     lblchangingqtyonhands.setText(String.valueOf(i.getItemQOH()));
                 } else {
                     lblchangingqtyonhands.setText("Out Of Stock");
-                    AlertController.errormessage("item " + i.getItemMedName() + " out of stock");
+                    AlertController.errormessage("item " + i.getItemProductName() + " out of stock");
                 }
             }
         } catch (Exception e) {

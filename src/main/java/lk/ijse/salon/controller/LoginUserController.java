@@ -74,7 +74,7 @@ public class LoginUserController {
             e.printStackTrace();
         }
         if (passwordTxt.getText().equals(password) ) {
-            AlertController.animationMesseage("/img/tick.gif", "Login",
+            AlertController.animationMesseage("/image/tick.gif", "Login",
                     "Login succesfull !!");
             Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event1 -> {
                 loginBtn.getScene().getWindow().hide();

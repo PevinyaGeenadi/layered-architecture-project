@@ -8,7 +8,7 @@ import lombok.*;
 @ToString
 public class ItemTM {
     private String ItemCode;
-    private String ItemMedName;
+    private String ItemProductName;
     private String ItemUnitPrice;
     private String ItemType;
     private String ItemmfgDate;
